@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UX Case Studies — Beedesign</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F2EDE8;
+    --orange: #E8643A;
+    --dark: #181C26;
+    --mid: #3A3D47;
+    --muted: #8A8681;
+    --warm-white: #FAF8F5;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    min-height: 100vh;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2.5rem;
+    border-bottom: 1px solid rgba(24,28,38,0.1);
+    background: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--dark);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  nav ul li a {
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  nav ul li a:hover, nav ul li a.active {
+    color: var(--orange);
+  }
+
+  .hero {
+    padding: 5rem 2.5rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .hero-label::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--orange);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--orange);
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 480px;
+    line-height: 1.7;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(24,28,38,0.1);
+    margin: 0 auto;
+    max-width: 900px;
+  }
+
+  .cases {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .case-card {
+    background: var(--warm-white);
+    border-radius: 16px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 340px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .case-card.reverse {
+    direction: rtl;
+  }
+
+  .case-card.reverse > * {
+    direction: ltr;
+  }
+
+  .case-info {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .case-meta {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    border: 1px solid rgba(24,28,38,0.15);
+    color: var(--mid);
+  }
+
+  .case-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: var(--dark);
+  }
+
+  .case-info p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--muted);
+    flex-grow: 1;
+    margin-bottom: 2rem;
+  }
+
+  .case-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .case-link svg {
+    transition: transform 0.2s;
+  }
+
+  .case-card:hover .case-link svg {
+    transform: translateX(4px);
+  }
+
+  .case-visual {
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+  }
+
+  .visual-fitdiary {
+    background: #1A1A2E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .visual-beelingual {
+    background: #F0A07A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Fitdiary phone mockup */
+  .phone {
+    width: 130px;
+    height: 240px;
+    background: #0D0D1A;
+    border-radius: 22px;
+    border: 2px solid rgba(255,255,255,0.15);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    padding: 12px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .phone-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+
+  .phone-title {
+    font-size: 8px;
+    color: #E8643A;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .phone-ring {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1.5px solid #E8643A;
+  }
+
+  .log-entry {
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+    padding: 5px 7px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .log-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #E8643A;
+    flex-shrink: 0;
+  }
+
+  .log-text {
+    font-size: 6px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .log-cal {
+    margin-left: auto;
+    font-size: 6px;
+    color: rgba(232,100,58,0.8);
+  }
+
+  .macro-bar-container {
+    margin-top: 4px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 6px;
+    padding: 6px 7px;
+  }
+
+  .macro-label {
+    font-size: 5.5px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 4px;
+  }
+
+  .macro-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .macro-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .macro-name {
+    font-size: 5px;
+    color: rgba(255,255,255,0.5);
+    width: 20px;
+  }
+
+  .macro-track {
+    flex: 1;
+    height: 3px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .macro-fill {
+    height: 100%;
+    border-radius: 2px;
+  }
+
+  .btn-add {
+    margin-top: auto;
+    background: #E8643A;
+    border-radius: 8px;
+    padding: 6px;
+    text-align: center;
+    font-size: 6px;
+    color: white;
+    letter-spacing: 0.05em;
+  }
+
+  /* BeeLingual visual */
+  .bee-card {
+    background: rgba(255,255,255,0.25);
+    border-radius: 14px;
+    padding: 14px 16px;
+    width: 160px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  }
+
+  .bee-flag {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+
+  .bee-word {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 2px;
+  }
+
+  .bee-translation {
+    font-size: 11px;
+    color: rgba(24,28,38,0.6);
+    margin-bottom: 10px;
+  }
+
+  .bee-progress {
+    height: 4px;
+    background: rgba(24,28,38,0.15);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+
+  .bee-fill {
+    height: 100%;
+    width: 60%;
+    background: var(--dark);
+    border-radius: 2px;
+  }
+
+  .bee-streak {
+    display: flex;
+    gap: 4px;
+  }
+
+  .streak-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--dark);
+    opacity: 0.15;
+  }
+
+  .streak-dot.done {
+    opacity: 1;
+  }
+
+  .coming-soon-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--orange);
+    color: white;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .coming-soon-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-top: 1px solid rgba(24,28,38,0.08);
+  }
+
+  @media (max-width: 640px) {
+    .case-card { grid-template-columns: 1fr; }
+    .case-card.reverse { direction: ltr; }
+    .case-visual { min-height: 220px; }
+    nav ul { gap: 1rem; }
+    nav { padding: 1rem 1.25rem; }
+    .hero { padding: 3rem 1.25rem 2rem; }
+    .cases { padding: 2rem 1.25rem 4rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://beedesign.org.uk/" class="logo">Beedesign</a>
+  <ul>
+    <li><a href="https://beedesign.org.uk/">Home</a></li>
+    <li><a href="#" class="active">UX</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <p class="hero-label">UX case studies</p>
+  <h1>Design that <em>solves</em><br>real problems</h1>
+  <p>A collection of user experience projects — from research and ideation through to tested, polished interfaces.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="cases">
+
+  <!-- Fitdiary -->
+  <a class="case-card" href="https://beedesignux.github.io/fitdiary" target="_blank">
+    <div class="case-info">
+      <div>
+        <div class="case-meta">
+          <span class="tag">Health & Fitness</span>
+          <span class="tag">Mobile</span>
+          <span class="tag">UX Research</span>
+        </div>
+        <h2>FitDiary</h2>
+        <p>A fitness and nutrition tracking app designed to reduce cognitive load. Research-led design with a focus on habit formation and meaningful progress visualisation.</p>
+      </div>
+      <span class="case-link">
+        View case study
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="#E8643A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </div>
+    <div class="case-visual visual-fitdiary">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="phone-top">
+            <span class="phone-title">FITDIARY</span>
+            <div class="phone-ring"></div>
+          </div>
+          <div class="log-entry">
+            <div class="log-dot"></div>
+            <span class="log-text">Oat porridge</span>
+            <span class="log-cal">312 kcal</span>
+          </div>
+          <div class="log-entry">
+            <div class="log-dot"></div>
+            <span class="log-text">Chicken & rice</span>
+            <span class="log-cal">480 kcal</span>
+          </div>
+          <div class="log-entry">
+            <div class="log-dot"></div>
+            <span class="log-text">Banana</span>
+            <span class="log-cal">89 kcal</span>
+          </div>
+          <div class="macro-bar-container">
+            <div class="macro-label">TODAY'S MACROS</div>
+            <div class="macro-bars">
+              <div class="macro-row">
+                <span class="macro-name">Protein</span>
+                <div class="macro-track"><div class="macro-fill" style="width:72%;background:#E8643A;"></div></div>
+              </div>
+              <div class="macro-row">
+                <span class="macro-name">Carbs</span>
+                <div class="macro-track"><div class="macro-fill" style="width:55%;background:#F0A07A;"></div></div>
+              </div>
+              <div class="macro-row">
+                <span class="macro-name">Fat</span>
+                <div class="macro-track"><div class="macro-fill" style="width:40%;background:rgba(232,100,58,0.4);"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="btn-add">+ LOG MEAL</div>
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <!-- BeeLingual -->
+  <a class="case-card reverse" href="#beelingual">
+    <div class="case-info">
+      <div>
+        <div class="coming-soon-badge">In progress</div>
+        <div class="case-meta">
+          <span class="tag">Language Learning</span>
+          <span class="tag">Mobile</span>
+          <span class="tag">Gamification</span>
+        </div>
+        <h2>BeeLingual</h2>
+        <p>A language learning app that makes daily practice feel rewarding. Exploring spaced repetition, bite-sized lessons, and streak mechanics to build lasting habits.</p>
+      </div>
+      <span class="case-link" style="color: var(--muted);">
+        Coming soon
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M8 3v10M3 8h10" stroke="#8A8681" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+    </div>
+    <div class="case-visual visual-beelingual">
+      <div class="bee-card">
+        <div class="bee-flag">🐝</div>
+        <div class="bee-word">Bonjour</div>
+        <div class="bee-translation">Hello · French</div>
+        <div class="bee-progress"><div class="bee-fill"></div></div>
+        <div class="bee-streak">
+          <div class="streak-dot done"></div>
+          <div class="streak-dot done"></div>
+          <div class="streak-dot done"></div>
+          <div class="streak-dot"></div>
+          <div class="streak-dot"></div>
+        </div>
+      </div>
+    </div>
+  </a>
+
+</section>
+
+<footer>
+  &copy; 2026 Beedesign · Bea Allister
+</footer>
+
+</body>
+</html>
