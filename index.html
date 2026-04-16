@@ -56,6 +56,13 @@ nav {
   transition: color 0.15s;
 }
 .nav-links a:hover { color: var(--text); }
+  .nav-links-contact {
+  font-size: 13px; letter-spacing: 0.04em;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.nav-links-contact:hover { color: var(--accent-lt); }
 
 /* INTRO SPLIT */
 .intro {
@@ -136,9 +143,9 @@ nav {
   font-family: 'Inter', sans-serif;
   font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
   text-decoration: none;
+  border-radius: 6px;   /* ← add this */
   transition: background 0.15s, transform 0.15s;
 }
-.btn-primary:hover { background: var(--accent-lt); transform: translateY(-1px); }
 
 .btn-ghost {
   display: inline-flex; align-items: center; gap: 10px;
@@ -148,9 +155,9 @@ nav {
   font-size: 12px; font-weight: 400; letter-spacing: 0.04em;
   text-decoration: none;
   border: 1px solid var(--border);
+  border-radius: 6px;   /* ← add this */
   transition: border-color 0.15s, color 0.15s;
 }
-.btn-ghost:hover { border-color: rgba(242,237,232,0.25); color: var(--text); }
 
 /* RIGHT — video */
 .intro-right {
@@ -276,7 +283,15 @@ nav {
 .social-links a:hover {
   color: #E8643A;
 }
-  
+ /* FOOTER */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 56px;
+  border-top: 1px solid var(--border);
+}
+ 
 /* RESPONSIVE */
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
@@ -349,7 +364,7 @@ nav {
     <li><a href="/ux/">UX</a></li>
     <li><a href="graphic.html">Graphic</a></li>
   </ul>
-  <a href="mailto:beedesignux@gmail.com" class="nav-back">Contact</a>
+<a href="mailto:beedesignux@gmail.com" class="nav-links-contact">Contact</a>
 </nav>
 <section class="intro">
   <div class="intro-left">
@@ -442,7 +457,4 @@ nav {
   </div>
 </footer>
 </body>
-</html>
-  
-   </body>
 </html>
