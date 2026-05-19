@@ -16,7 +16,7 @@
   }
   html { scroll-behavior: smooth; }
   body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--dark); font-size:16px; line-height:1.7; }
-  nav { position:sticky; top:0; z-index:100; background:var(--dark); padding:0 60px; height:64px; display:flex; align-items:center; justify-content:space-between; }
+  nav { position:sticky; top:0; z-index:100; background:#0F0F0F; padding:0 60px; height:80px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border); }
   .nav-logo { display:flex; align-items:center; text-decoration:none; }
   .nav-logo img { height:48px; width:auto; display:block; transition:opacity 0.2s; }
   .nav-logo:hover img { opacity:0.8; }
@@ -115,7 +115,7 @@
   .social-links a:hover { color:var(--coral); }
   @media(max-width:900px) {
     nav { padding:0 20px; }
-   .nav-logo img { height: 32px; }
+  .nav-logo img { height:40px; }
     .hero-inner { grid-template-columns:1fr; padding:60px 24px 0; }
     .metric-grid,.feature-grid { grid-template-columns:1fr; }
     .persona-grid { grid-template-columns:repeat(3,1fr); }
