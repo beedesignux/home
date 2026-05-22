@@ -10,6 +10,8 @@
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Great+Vibes&family=Barlow:wght@700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -262,13 +264,11 @@ nav {
   font-size: 22px; font-weight: 400;
   letter-spacing: -0.03em; color: var(--text);
   line-height: 1.15;
+}
 .card-arrow {
-  font-size: 22px;
-  font-weight: bold;
-  color: rgba(242,237,232,0.35);
+  font-size: 18px; color: rgba(242,237,232,0.35);
   transition: transform 0.2s, color 0.2s;
-  flex-shrink: 0;
-  margin-bottom: 2px;
+  flex-shrink: 0; margin-bottom: 2px;
 }
 .card:hover .card-arrow {
   transform: translate(3px,-3px);
@@ -421,7 +421,7 @@ footer {
           <div class="card-label-sm">Case studies</div>
           <div class="card-title">UX Design</div>
         </div>
-       <div class="card-arrow">&#8599;&#xFE0E;</div>
+        <div class="card-arrow">&#8599;</div>
       </div>
     </a>
 
@@ -434,7 +434,7 @@ footer {
           <div class="card-label-sm">Print &amp; branding</div>
           <div class="card-title">Graphic Design</div>
         </div>
-       <div class="card-arrow">&#8599;&#xFE0E;</div>
+        <div class="card-arrow">&#8599;</div>
       </div>
     </a>
 
@@ -463,5 +463,4 @@ footer {
 </footer>
 </body>
 </html>
-
 
