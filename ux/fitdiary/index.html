@@ -18,7 +18,29 @@
   body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--dark); font-size:16px; line-height:1.7; }
   nav { position:sticky; top:0; z-index:100; background:#0F0F0F; padding:0 60px; height:80px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border); }
   .nav-logo { display:flex; align-items:center; text-decoration:none; }
-.nav-logo img { height:56px; width:auto; display:block; transition:opacity 0.2s; object-fit:contain; }
+.nav-logo img { height:44px; width:auto; display:block; transition:opacity 0.2s; object-fit:contain; }
+
+.nav-actions { display:flex; align-items:center; gap:1.25rem; }
+
+.nav-home {
+    display:inline-flex;
+    align-items:center;
+    gap:0.3rem;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.6);
+    text-decoration:none;
+    padding:0.5rem 0.9rem;
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:999px;
+    transition:all 0.2s;
+}
+.nav-home:hover {
+    color:white;
+    border-color:var(--coral);
+    background:var(--coral);
+}
   .nav-logo:hover img { opacity:0.8; }
   .nav-back { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.4); text-decoration:none; transition:color 0.2s; }
   .nav-back:hover { color:var(--coral); }
@@ -115,7 +137,8 @@
   .social-links a:hover { color:var(--coral); }
   @media(max-width:900px) {
     nav { padding:0 20px; }
-  .nav-logo img { height:40px; }
+ .nav-logo img { height:32px; }
+.nav-home { padding:0.4rem 0.7rem; font-size:10px; }
     .hero-inner { grid-template-columns:1fr; padding:60px 24px 0; }
     .metric-grid,.feature-grid { grid-template-columns:1fr; }
     .persona-grid { grid-template-columns:repeat(3,1fr); }
@@ -127,10 +150,9 @@
 </head>
 <body>
 
-<nav>
-  <a href="https://beedesign.org.uk/" class="nav-logo">
-    <img src="logo.PNG" alt="Beedesign" height="48">
-  </a>
+<a href="https://beedesign.org.uk/" class="nav-logo" aria-label="Back to home">
+    <img src="logo.PNG" alt="Beedesign">
+</a>
   <ul class="nav-links">
     <li><a href="#overview">Overview</a></li>
     <li><a href="#research">Research</a></li>
@@ -139,7 +161,10 @@
     <li><a href="#features">Features</a></li>
     <li><a href="#outcome">Outcome</a></li>
   </ul>
-  <a href="mailto:beedesignux@gmail.com" class="nav-back">Contact</a>
+<div class="nav-actions">
+    <a href="https://beedesign.org.uk/" class="nav-home">← Home</a>
+    <a href="mailto:beedesignux@gmail.com" class="nav-back">Contact</a>
+</div>
 </nav>
 
 <div class="hero">
