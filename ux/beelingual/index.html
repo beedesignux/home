@@ -33,6 +33,17 @@ nav { position:sticky; top:0; z-index:100; background:#0F0F0F; padding:0 60px; h
   .nav-links { display:flex; gap:32px; list-style:none; }
   .nav-links a { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
   .nav-links a:hover { color:var(--accent); }
+ .nav-links a:hover { color:var(--accent); }
+
+  .nav-actions { display:flex; align-items:center; gap:1.25rem; }
+  .nav-home {
+    display:inline-flex; align-items:center; gap:0.3rem;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:rgba(255,255,255,0.4); text-decoration:none;
+    padding:0.5rem 0.9rem; border:1px solid var(--border-strong);
+    border-radius:999px; transition:all 0.2s;
+  }
+  .nav-home:hover { color:#fff; border-color:var(--accent); background:var(--accent); }
 
   .container { max-width:1100px; margin:0 auto; padding:0 40px; }
   section { padding:100px 0; }
@@ -220,7 +231,10 @@ nav { position:sticky; top:0; z-index:100; background:#0F0F0F; padding:0 60px; h
     <li><a href="#testing">Testing</a></li>
     <li><a href="#outcome">Outcome</a></li>
   </ul>
-  <a href="mailto:beedesignux@gmail.com" class="nav-back">Contact</a>
+<div class="nav-actions">
+    <a href="https://beedesign.org.uk/ux/" class="nav-home">← Back</a>
+    <a href="mailto:beedesignux@gmail.com" class="nav-back">Contact</a>
+  </div>
 </nav>
 
 <div class="hero">
